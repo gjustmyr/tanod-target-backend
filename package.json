@@ -2,10 +2,10 @@
   "name": "tanod-backend",
   "version": "1.0.0",
   "description": "Express + Sequelize API for user auth",
-  "main": "src/app.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node src/app.js",
-    "dev": "nodemon src/app.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
