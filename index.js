@@ -25,9 +25,13 @@ app.use((req, res) => {
 
 const start = async () => {
   await connectDB();
+  
+  // Sync all models
   await sequelize.sync({ alter: false });
-  app.listen(PORT, '0.0.0.0', () => {
-    console.log(`🚀 Server listening on http://0.0.0.0:${PORT}`);
+  console.log('✅ Database models synced');
+  
+  app.listen(PORT, '127.0.0.1', () => {
+    console.log(`🚀 Server listening on http://localhost:${PORT}`);
   });
 };
 
