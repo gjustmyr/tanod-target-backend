@@ -9,7 +9,10 @@ const inventoryRouter = require('./routes/inventory');
 const app = express();
 const PORT = process.env.PORT || 4000;
 
-app.use(cors());
+app.use(cors({
+  origin: '*', // Allow all origins (update when frontend is ready)
+  credentials: false
+}));
 app.use(express.json());
 
 app.get('/api/ping', (req, res) => res.json({ message: 'pong' }));
@@ -23,8 +26,8 @@ app.use((req, res) => {
 const start = async () => {
   await connectDB();
   await sequelize.sync({ alter: false });
-  app.listen(PORT, () => {
-    console.log(`🚀 Server listening on http://localhost:${PORT}`);
+  app.listen(PORT, '0.0.0.0', () => {
+    console.log(`🚀 Server listening on http://0.0.0.0:${PORT}`);
   });
 };
 
